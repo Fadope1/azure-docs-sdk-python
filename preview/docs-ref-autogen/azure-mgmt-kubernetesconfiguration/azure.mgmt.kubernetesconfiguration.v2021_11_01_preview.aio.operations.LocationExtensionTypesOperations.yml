@@ -14,7 +14,7 @@ methods:
 - uid: azure.mgmt.kubernetesconfiguration.v2021_11_01_preview.aio.operations.LocationExtensionTypesOperations.list
   name: list
   summary: List all Extension Types.
-  signature: 'list(location: str, **kwargs: Any) -> AsyncIterable[azure.mgmt.kubernetesconfiguration.v2021_11_01_preview.models._models_py3.ExtensionType]'
+  signature: 'list(location: str, **kwargs: Any) -> AsyncIterable[ExtensionType]'
   parameters:
   - name: location
     description: extension location. Required.

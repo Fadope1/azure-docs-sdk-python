@@ -19,7 +19,7 @@ methods:
     Triggers support package on the device.'
   signature: 'begin_trigger_support_package(device_name: str, resource_group_name:
     str, trigger_support_package_request: _models.TriggerSupportPackageRequest, *,
-    content_type: str = "''application/json''", **kwargs: Any) -> LROPoller[None]'
+    content_type: str = ''application/json'', **kwargs: Any) -> LROPoller[None]'
   parameters:
   - name: device_name
     description: The device name. Required.

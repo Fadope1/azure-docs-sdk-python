@@ -16,7 +16,7 @@ methods:
   summary: Posts the device capacity request info to check feasibility.
   signature: 'async begin_check_resource_creation_feasibility(resource_group_name:
     str, device_name: str, device_capacity_request_info: _models.DeviceCapacityRequestInfo,
-    capacity_name: Optional[str] = None, *, content_type: str = "''application/json''",
+    capacity_name: str | None = None, *, content_type: str = ''application/json'',
     **kwargs: Any) -> AsyncLROPoller[None]'
   parameters:
   - name: resource_group_name

@@ -15,7 +15,7 @@ methods:
   name: check_local
   summary: Check whether the resource name is available in the given region.
   signature: 'async check_local(location: str, body: _models.CheckNameAvailabilityRequest,
-    *, content_type: str = "''application/json''", **kwargs: Any) -> _models.CheckNameAvailabilityResponse'
+    *, content_type: str = ''application/json'', **kwargs: Any) -> _models.CheckNameAvailabilityResponse'
   parameters:
   - name: location
     description: The location in which uniqueness will be verified. Required.
