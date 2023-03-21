@@ -24,22 +24,22 @@ functions:
   parameters:
   - name: name
     description: Name of the command job or component created
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: description
     description: a friendly description of the command
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: tags
     description: Tags to be attached to this command
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Dict>
   - name: properties
     description: The asset property dictionary.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:dict>[<xref:str>, <xref:str>]
   - name: display_name
@@ -52,7 +52,7 @@ functions:
 
       if None is provided, default will be set to current directory name. Will be
       ignored as a pipeline step.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: command
@@ -68,12 +68,12 @@ functions:
   - name: environment_variables
     description: environment variables to set on the compute before this command is
       executed
-    isRequired: true
+    isRequired: false
     types:
     - <xref:dict>
   - name: distribution
     description: the distribution mode to use for this command
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Union>[<xref:Dict>, <xref:azure.ai.ml.MpiDistribution>, <xref:azure.ai.ml.TensorFlowDistribution>,
       <xref:azure.ai.ml.PyTorchDistribution>]
@@ -86,21 +86,21 @@ functions:
     - <xref:str>
   - name: inputs
     description: a dict of inputs used by this command.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Dict>
   - name: outputs
     description: the outputs of this command
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Dict>
   - name: instance_count
     description: Optional number of instances or nodes used by the compute target.
       Defaults to 1.
-    isRequired: true
+    isRequired: false
   - name: instance_type
     description: Optional type of VM used as supported by the compute target.
-    isRequired: true
+    isRequired: false
   - name: docker_args
     description: 'Extra arguments to pass to the Docker run command. This would override
       any
@@ -109,7 +109,7 @@ functions:
       parameter is only
 
       supported for Azure ML compute types.'
-    isRequired: true
+    isRequired: false
   - name: shm_size
     description: 'Size of the docker container''s shared memory block. This should
       be in the
@@ -118,19 +118,19 @@ functions:
       be one of
 
       b(bytes), k(kilobytes), m(megabytes), or g(gigabytes).'
-    isRequired: true
+    isRequired: false
   - name: timeout
     description: The number in seconds, after which the job will be cancelled.
-    isRequired: true
+    isRequired: false
   - name: code
     description: "the code folder to run \u2013 typically a local folder that will\
       \ be uploaded as the job is submitted"
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Union>[<xref:str>, <xref:os.PathLike>]
   - name: identity
     description: Identity that training job will use while running on compute.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Union>[<xref:azure.ai.ml.ManagedIdentityConfiguration,azure.ai.ml.AmlTokenConfiguration>]
   - name: is_deterministic
@@ -145,7 +145,7 @@ functions:
 
       Default to be True, specify is_deterministic=False if you would like to avoid
       such reuse behavior.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:bool>
   - name: services
@@ -154,7 +154,7 @@ functions:
 
       Please see [https://aka.ms/azuremlexperimental](https://aka.ms/azuremlexperimental)
       for more information.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Dict>[<xref:str>, <xref:azure.ai.ml.entities.JobService>]
 - uid: azure.ai.ml.load_batch_deployment
@@ -176,7 +176,7 @@ functions:
       If the source is an open file, the file will be read directly,
 
       and an exception is raised if the file is not readable.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Union>[<xref:PathLike>, <xref:str>, <xref:io.TextIOWrapper>]
   - name: relative_origin
@@ -187,14 +187,14 @@ functions:
       Defaults to the inputted source''s directory if it is a file or file path input.
 
       Defaults to "./" if the source is a stream input with no name value.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: params_override
     description: 'Fields to overwrite on top of the yaml file.
 
       Format is [{"field1": "value1"}, {"field2": "value2"}]'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:List>[<xref:Dict>]
   return:
@@ -289,27 +289,27 @@ functions:
     description: 'Fields to overwrite on top of the yaml file.
 
       Format is [{"field1": "value1"}, {"field2": "value2"}]'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:List>[<xref:Dict>]
   - name: client
     description: An MLClient instance.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:azure.ai.ml.MLClient>
   - name: name
     description: Name of the component.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: version
     description: Version of the component.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: kwargs
     description: A dictionary of additional configuration parameters.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:dict>
   return:
@@ -346,14 +346,14 @@ functions:
       Defaults to the inputted source''s directory if it is a file or file path input.
 
       Defaults to "./" if the source is a stream input with no name value.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: params_override
     description: 'Fields to overwrite on top of the yaml file.
 
       Format is [{"field1": "value1"}, {"field2": "value2"}]'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:List>[<xref:Dict>]
   return:
@@ -389,14 +389,14 @@ functions:
       Defaults to the inputted source''s directory if it is a file or file path input.
 
       Defaults to "./" if the source is a stream input with no name value.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: params_override
     description: 'Fields to overwrite on top of the yaml file.
 
       Format is [{"field1": "value1"}, {"field2": "value2"}]'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:List>[<xref:Dict>]
   return:
@@ -426,7 +426,7 @@ functions:
       If the source is an open file, the file will be read directly,
 
       and an exception is raised if the file is not readable.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Union>[<xref:PathLike>, <xref:str>, <xref:io.TextIOWrapper>]
   - name: relative_origin
@@ -437,14 +437,14 @@ functions:
       Defaults to the inputted source''s directory if it is a file or file path input.
 
       Defaults to "./" if the source is a stream input with no name value.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: params_override
     description: 'Fields to overwrite on top of the yaml file.
 
       Format is [{"field1": "value1"}, {"field2": "value2"}]'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:List>[<xref:Dict>]
   return:
@@ -474,7 +474,7 @@ functions:
       If the source is an open file, the file will be read directly,
 
       and an exception is raised if the file is not readable.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Union>[<xref:PathLike>, <xref:str>, <xref:io.TextIOWrapper>]
   - name: relative_origin
@@ -485,14 +485,14 @@ functions:
       Defaults to the inputted source''s directory if it is a file or file path input.
 
       Defaults to "./" if the source is a stream input with no name value.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: params_override
     description: 'Fields to overwrite on top of the yaml file.
 
       Format is [{"field1": "value1"}, {"field2": "value2"}]'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:List>[<xref:Dict>]
   return:
@@ -522,7 +522,7 @@ functions:
       If the source is an open file, the file will be read directly,
 
       and an exception is raised if the file is not readable.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Union>[<xref:PathLike>, <xref:str>, <xref:io.TextIOWrapper>]
   - name: relative_origin
@@ -533,14 +533,14 @@ functions:
       Defaults to the inputted source''s directory if it is a file or file path input.
 
       Defaults to "./" if the source is a stream input with no name value.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: params_override
     description: 'Fields to overwrite on top of the yaml file.
 
       Format is [{"field1": "value1"}, {"field2": "value2"}]'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:List>[<xref:Dict>]
   return:
@@ -570,7 +570,7 @@ functions:
       If the source is an open file, the file will be read directly,
 
       and an exception is raised if the file is not readable.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Union>[<xref:PathLike>, <xref:str>, <xref:io.TextIOWrapper>]
   - name: relative_origin
@@ -581,14 +581,14 @@ functions:
       Defaults to the inputted source''s directory if it is a file or file path input.
 
       Defaults to "./" if the source is a stream input with no name value.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: params_override
     description: 'Fields to overwrite on top of the yaml file.
 
       Format is [{"field1": "value1"}, {"field2": "value2"}]'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:List>[<xref:Dict>]
   return:
@@ -630,14 +630,14 @@ functions:
       Defaults to the inputted source''s directory if it is a file or file path input.
 
       Defaults to "./" if the source is a stream input with no name value.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: params_override
     description: 'Fields to overwrite on top of the yaml file.
 
       Format is [{"field1": "value1"}, {"field2": "value2"}]'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:List>[<xref:Dict>]
   return:
@@ -679,14 +679,14 @@ functions:
       Defaults to the inputted source''s directory if it is a file or file path input.
 
       Defaults to "./" if the source is a stream input with no name value.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: params_override
     description: 'Fields to overwrite on top of the yaml file.
 
       Format is [{"field1": "value1"}, {"field2": "value2"}]'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:List>[<xref:Dict>]
   return:
@@ -727,14 +727,14 @@ functions:
       Defaults to the inputted source''s directory if it is a file or file path input.
 
       Defaults to "./" if the source is a stream input with no name value.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: params_override
     description: 'Fields to overwrite on top of the yaml file.
 
       Format is [{"field1": "value1"}, {"field2": "value2"}]'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:List>[<xref:Dict>]
   return:
@@ -770,14 +770,14 @@ functions:
       Defaults to the inputted source''s directory if it is a file or file path input.
 
       Defaults to "./" if the source is a stream input with no name value.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: params_override
     description: 'Fields to overwrite on top of the yaml file.
 
       Format is [{"field1": "value1"}, {"field2": "value2"}]'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:List>[<xref:Dict>]
   return:
@@ -814,14 +814,14 @@ functions:
       Defaults to the inputted source''s directory if it is a file or file path input.
 
       Defaults to "./" if the source is a stream input with no name value.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: params_override
     description: 'Fields to overwrite on top of the yaml file.
 
       Format is [{"field1": "value1"}, {"field2": "value2"}]'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:List>[<xref:Dict>]
   return:
@@ -856,74 +856,74 @@ functions:
     - <xref:str>
   - name: name
     description: The name of the job.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: display_name
     description: Display name of the job.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: description
     description: Description of the job.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: tags
     description: Tag dictionary. Tags can be added, removed, and updated.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:dict>[<xref:str>, <xref:str>]
   - name: code
     description: The source code to run the job.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Union>[<xref:str>, <xref:os.PathLike>]
   - name: entry
     description: File or class entry point.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:dict>[<xref:str>, <xref:str>]
   - name: py_files
     description: List of .zip, .egg or .py files to place on the PYTHONPATH for Python
       apps.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Optional>[<xref:typing.List>[<xref:str>]]
   - name: jars
     description: List of jars to include on the driver and executor classpaths.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Optional>[<xref:typing.List>[<xref:str>]]
   - name: files
     description: List of files to be placed in the working directory of each executor.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Optional>[<xref:typing.List>[<xref:str>]]
   - name: archives
     description: List of archives to be extracted into the working directory of each
       executor.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Optional>[<xref:typing.List>[<xref:str>]]
   - name: identity
     description: Identity that spark job will use while running on compute.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Union>[<xref:Dict>, <xref:ManagedIdentity>, <xref:AmlToken>, <xref:UserIdentity>]
   - name: driver_cores
     description: Number of cores to use for the driver process, only in cluster mode.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:int>
   - name: driver_memory
     description: Amount of memory to use for the driver process.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: executor_cores
     description: The number of cores to use on each executor.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:int>
   - name: executor_memory
@@ -931,12 +931,12 @@ functions:
       as JVM memory strings with
 
       a size unit suffix ("k", "m", "g" or "t") (e.g. 512m, 2g).'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: executor_instances
     description: Initial number of executors.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:int>
   - name: dynamic_allocation_enabled
@@ -944,44 +944,44 @@ functions:
       of executors
 
       registered with this application up and down based on the workload.'
-    isRequired: true
+    isRequired: false
     types:
     - <xref:bool>
   - name: dynamic_allocation_min_executors
     description: Lower bound for the number of executors if dynamic allocation is
       enabled.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:int>
   - name: dynamic_allocation_max_executors
     description: Upper bound for the number of executors if dynamic allocation is
       enabled.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:int>
   - name: conf
     description: A dict with pre-defined spark configurations key and values.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:dict>
   - name: environment
     description: Azure ML environment to run the job in.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Union>[<xref:str>, <xref:azure.ai.ml.entities.Environment>]
   - name: inputs
     description: Mapping of inputs data bindings used in the job.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:dict>
   - name: outputs
     description: Mapping of outputs data bindings used in the job.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:dict>
   - name: args
     description: Arguments for the job.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: compute
@@ -991,7 +991,7 @@ functions:
     - <xref:str>
   - name: resources
     description: Compute Resource configuration for the job.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:Union>[<xref:Dict>, <xref:azure.ai.ml.entities.SparkResourceConfiguration>]
 classes:
