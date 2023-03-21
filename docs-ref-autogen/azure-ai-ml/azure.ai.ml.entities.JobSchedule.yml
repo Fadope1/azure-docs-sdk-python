@@ -32,22 +32,22 @@ constructor:
     - <xref:azure.ai.ml.entities.Job>
   - name: display_name
     description: Display name of the schedule.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: description
     description: Description of the schedule, defaults to None
-    isRequired: true
+    isRequired: false
     types:
     - <xref:str>
   - name: tags
     description: Tag dictionary. Tags can be added, removed, and updated.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:dict>[<xref:str>, <xref:str>]
   - name: properties
     description: The job property dictionary.
-    isRequired: true
+    isRequired: false
     types:
     - <xref:dict>[<xref:str>, <xref:str>]
 methods:
